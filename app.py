@@ -28,9 +28,9 @@ if username == "employee":
 #mock real-tim work tracking 
 if username == "employee" or username== "manager":
     st.title("Real-Time Work Tracking")
-    st.table({"Work Item":["Task 1","Task 2","Task 3"],
+    st.table({"Work Item": ["Task 1","Task 2","Task 3"],
               "Status":["In Progress","Completed","In Review"],
-              "Assigned To":["Employee A ","Employee B",,"Employee C"]})
+              "Assigned To":["Employee A ","Employee B","Employee C"]})
     
 st.sidebar.title("Navigation")
 if st.sidebar.button("Logout"):
