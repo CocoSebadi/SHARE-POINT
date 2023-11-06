@@ -70,7 +70,7 @@ work_data = [
 ]
 
 # Create a login page
-st.title("Employee Work Submission and Tracking")
+st.title("Employee Work Submission and Tracking Application")
 
 # Add login form
 username = st.text_input("Username")
