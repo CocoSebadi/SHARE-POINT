@@ -37,4 +37,4 @@ if st.sidebar.button("Logout"):
     st.experimental_rerun()
     
     #run the streamlit app
-st.write("you can run this app using streamlit run.app.py")
+#st.write("you can run this app using streamlit run.app.py")
