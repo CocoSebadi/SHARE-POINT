@@ -43,7 +43,7 @@ def main():
         description = st.text_area("Issue Description", "")
         risk_type = st.selectbox("Risk Type", ["High", "Medium", "Low"])
         casual_category = st.selectbox("Casual Category", ["Category A", "Category B", "Category C"])
-        bu_rating = st.selectbox("BU Rating", ["A", "B", "C"])
+        bu_rating = st.slider("BU Rating", min_value=1, max_value=5, value=3)
         agl_rating = st.slider("AGL Rating", min_value=1, max_value=5, value=3)
         assurance_provider = st.selectbox("Assurance Provider", ["Provider X", "Provider Y", "Provider Z"])
         due_date = st.date_input("Due Date")
