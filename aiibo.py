@@ -35,10 +35,9 @@ def main():
             # Add form elements for logging a new issue
             issue_name = st.text_input("Issue Name")
             issue_description = st.text_area("Issue Description", "")
-            risk_type = st.text_input("Risk Type")
+            risk_category = st.selectbox("Risk Type",["Operational risk","Market risk"])
             subrisk_type = st.text_input("Subrisk Type")
             entity_dropdown = st.selectbox("Entity", ["Entity 1", "Entity 2", "Entity 3"])
-            causal_category = st.text_input("Causal Category")
             bu_rating = st.selectbox("BU Rating",["Limited", "Major", "Critical"])
             agl_rating = st.selectbox("AGL Rating", ["Limited", "Major", "Critical"])
             assurance_provider_dropdown = st.selectbox("Assurance Provider", ["Provider 1", "Provider 2"])
