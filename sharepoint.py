@@ -57,4 +57,7 @@ def main():
         st.error("Login failed. Please try again.")
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except Exception as e:
+        st.exception(e)
