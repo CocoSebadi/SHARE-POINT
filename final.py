@@ -39,7 +39,7 @@ def main():
             subrisk_type = st.text_input("Subrisk Type")
             entity_dropdown = st.selectbox("Entity", ["Entity 1", "Entity 2", "Entity 3"])
             causal_category = st.text_input("Causal Category")
-            bu_rating = st.selectbox("BU Rating", ["Limited", "Major", "Critical")
+            bu_rating = st.selectbox("BU Rating", ["Limited", "Major", "Critical"])
             agl_rating = st.selectbox("AGL Rating", ["Limited", "Major", "Critical"])
             assurance_provider_dropdown = st.selectbox("Assurance Provider", ["Provider 1", "Provider 2"])
             due_date = st.date_input("Due Date")
