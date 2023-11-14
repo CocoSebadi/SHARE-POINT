@@ -12,7 +12,7 @@ def login():
         return False
 
 def main():
-    st.title("Issues Form")
+    st.title("Project Issues Form")
 
     if login():
         st.success("Login successful!")
@@ -26,7 +26,7 @@ def main():
             'Issue Owner': ['John', 'Jane', 'Bob'],
             'Original Date': ['2022-01-01', '2022-02-01', '2022-03-01'],
             'Revised Due Date': ['2022-02-01', '2022-03-01', '2022-04-01'],
-            'BU Rating': ['Limited', 'Critical','Major']
+            'BU Rating': ['High', 'Medium', 'Low']
         }
         open_issues_df = pd.DataFrame(open_issues_data)
 
@@ -39,8 +39,9 @@ def main():
             subrisk_type = st.text_input("Subrisk Type")
             entity_dropdown = st.selectbox("Entity", ["Entity 1", "Entity 2", "Entity 3"])
             causal_category = st.text_input("Causal Category")
-            bu_rating = st.selectbox("BU Rating", ["Limited", "Major","Critical"])
-            agl_rating = st.selectbox("AGL Rating", ["Limited", "Major","Critical"])
+            bu_rating = st.text_input("BU Rating")
+            agl_rating = st.selectbox("AGL Rating", ["Limited", "Major", "Critical"])
+            rating = st.text_input("Rating")
             assurance_provider_dropdown = st.selectbox("Assurance Provider", ["Provider 1", "Provider 2"])
             due_date = st.date_input("Due Date")
             financially_implicated = st.radio("Is the issue financially implicated?", ["Yes", "No"])
@@ -74,3 +75,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
