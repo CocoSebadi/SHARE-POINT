@@ -11,7 +11,7 @@ def login():
         return False
 
 def main():
-    st.title("Project Issues Form")
+    st.title("Issues Form")
 
     if login():
         st.success("Login successful!")
@@ -20,35 +20,37 @@ def main():
         issue_action = st.radio("Select an action:", ["Log a New Issue", "Update an Existing Issue"])
 
         st.header("Issue Details")
-
-        issue_name = st.text_input("Issue Name")
-        issue_description = st.text_area("Issue Description")
-
+        issue_name = st.text_input("Issue Name", "")
+        issue_description = st.text_area("Issue Description", "")
         risk_type = st.selectbox("Risk Type", ["Low", "Medium", "High"])
+        # Add more form elements as needed
 
-        entities = st.multiselect("Entities", ["Entity A", "Entity B", "Entity C"])
+        st.header("Category and Ratings")
+        casual_category = st.selectbox("Casual Category", ["Category A", "Category B", "Category C"])
+        bu_rating = st.slider("BU Rating", min_value=1, max_value=5, value=3)
+        agl_rating = st.slider("AGL Rating", min_value=1, max_value=5, value=3)
+        assurance_provider = st.selectbox("Assurance Provider", ["Provider A", "Provider B", "Provider C"])
 
-        causal_category = st.selectbox("Causal Category", ["Category 1", "Category 2", "Category 3"])
+        st.header("Due Date and Financial Implications")
+        due_date = st.date_input("Due Date", help="Select the due date of the issue")
+        if due_date > (st.date_input("Today") + pd.DateOffset(days=90)):
+            st.warning("This is a milestone.")
+        elif due_date > (st.date_input("Today") + pd.DateOffset(years=2)):
+            st.error("This is an issue.")
 
-        bu_rating = st.slider("BU Rating", min_value=1, max_value=5)
+        financially_implicated = st.radio("Is the issue financially implicated?", ["Yes", "No"])
 
-        agile_rating = st.slider("Agile Rating", min_value=1, max_value=5)
+        st.header("Risk Event")
+        risk_event_type = st.selectbox("Type of Risk Event", ["Type 1", "Type 2", "Type 3"])
 
-        assurance_provider = st.text_input("Assurance Provider")
-
-        due_date = st.date_input("Due Date")
-
-        # If updating an existing issue, ask for additional evidence
+        # Additional elements for updating an existing issue
         if issue_action == "Update an Existing Issue":
-            st.header("Update Evidence")
-            update_evidence = st.text_area("Provide written evidence for the update")
-
-            # Option to attach a file
-            uploaded_file = st.file_uploader("Attach a File (if any)", type=["pdf", "docx", "xlsx"])
+            st.header("Update Information")
+            update_file = st.file_uploader("Attach a File for Update", type=["pdf", "docx"])
+            written_evidence = st.text_area("Provide Written Evidence for Update", "")
 
         # Add a button to submit the form
         if st.button("Submit"):
-            # Add logic to handle form submission, storing the data, etc.
             st.success("Form submitted successfully!")
 
     else:
