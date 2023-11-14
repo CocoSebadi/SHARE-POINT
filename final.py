@@ -12,7 +12,7 @@ def login():
         return False
 
 def main():
-    st.title("Project Issues Form")
+    st.title("Issues Form")
 
     if login():
         st.success("Login successful!")
@@ -26,7 +26,7 @@ def main():
             'Issue Owner': ['John', 'Jane', 'Bob'],
             'Original Date': ['2022-01-01', '2022-02-01', '2022-03-01'],
             'Revised Due Date': ['2022-02-01', '2022-03-01', '2022-04-01'],
-            'BU Rating': ['High', 'Medium', 'Low']
+            'BU Rating': ['Limited', 'Critical', 'Major']
         }
         open_issues_df = pd.DataFrame(open_issues_data)
 
