@@ -12,7 +12,7 @@ def login():
         return False
 
 def main():
-    st.title("Issues Form")
+    st.title("Project Issues Form")
 
     if login():
         st.success("Login successful!")
@@ -22,11 +22,11 @@ def main():
 
         # Placeholder DataFrame for consolidated open issues
         open_issues_data = {
-            'Issue ID': [1, 2, 3],
-            'Issue Owner': ['John', 'Jane', 'Bob'],
-            'Original Date': ['2022-01-01', '2022-02-01', '2022-03-01'],
-            'Revised Due Date': ['2022-02-01', '2022-03-01', '2022-04-01'],
-            'BU Rating': ['High', 'Medium', 'Low']
+            'Issue ID': [1, 2, 3, 4],
+            'Issue Owner': ['John', 'Jane', 'Bob', 'Mary'],
+            'Original Date': ['2022-01-01', '2022-02-01', '2022-03-01', '2022-05-01'],
+            'Revised Due Date': ['2022-02-01', '2022-03-01', '2022-04-01', '2022-06-01'],
+            'BU Rating': ['Limited', 'Major', 'Moderate','Critical']
         }
         open_issues_df = pd.DataFrame(open_issues_data)
 
@@ -35,11 +35,13 @@ def main():
             # Add form elements for logging a new issue
             issue_name = st.text_input("Issue Name")
             issue_description = st.text_area("Issue Description", "")
-            risk_category = st.selectbox("Risk Type",["Operational risk","Market risk"])
+            risk_type = st.text_input("Risk Type")
             subrisk_type = st.text_input("Subrisk Type")
-            entity_dropdown = st.selectbox("Entity", ["Entity 1", "Entity 2", "Entity 3"])
-            bu_rating = st.selectbox("BU Rating",["Limited", "Major", "Critical"])
-            agl_rating = st.selectbox("AGL Rating", ["Limited", "Major", "Critical"])
+            entity_dropdown = st.selectbox("Entity", ["AIC", "GAM","IDIRECT","INSTANT LIFE","AL"])
+            causal_category = st.text_input("Causal Category")
+            bu_rating = st.selectbox("BU Rating", ["Limited", "Major", "Moderate","Critical"])
+            agl_rating = st.selectbox("AGL Rating", ["Limited", "Major", "Moderate","Critical"])
+            rating = st.text_input("Rating")
             assurance_provider_dropdown = st.selectbox("Assurance Provider", ["Provider 1", "Provider 2"])
             due_date = st.date_input("Due Date")
             financially_implicated = st.radio("Is the issue financially implicated?", ["Yes", "No"])
