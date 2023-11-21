@@ -12,7 +12,7 @@ def login():
         return False
 
 def main():
-    st.title("Project Issues Form")
+    st.title("Issues Form")
 
     if login():
         st.success("Login successful!")
