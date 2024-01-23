@@ -4,7 +4,7 @@ from datetime import datetime, timedelta
 
 # Function to validate employee number
 def validate_employee_number(employee_number):
-    valid_employee_numbers = ["Ab02968, "Ab02967", "Ab03268"]
+    valid_employee_numbers = ["ab02968, "ab02967", "ab03268"]
     return employee_number in valid_employee_numbers
 
 # Function to calculate reminder date
