@@ -13,8 +13,9 @@ def calculate_reminder_date(due_date):
 
 # Function to send email (placeholder, implement your email sending logic here)
 def send_email(recipient_email, subject, body):
-    # Implement your email sending logic here
-    pass
+     print(f"Sending email to: {recipient_email}")
+     print(f"Subject: {subject}")
+     print(f"Body:\n{body}")
 
 # Main function
 def main():
@@ -39,7 +40,18 @@ def main():
                         issue_name = st.text_input("Issue Name")
                         issue_description = st.text_area("Issue Description", "")
                         issue_status = st.selectbox("Issue Status", ["Open", "Closed", "Risk Accepted", "Overdue"])
-                        # ... (rest of the form elements)
+                        risk_type = st.selectbox("Risk Type", ["Operational & Resilience Risk", "Insurance risk type", "Compliance Risk", "Model Risk", "Conduct Risk"])
+                        subrisk_type = st.selectbox("Subrisk Type", ["Model Uncertainty Risk", "Process Management Risk", "Supplier Risk", "Technology Risk", "Transaction Processing and Management Risk", "Underwriting Risk", "Anti-Money Laundering", "Business Continuity Risk", "Change Risk", "Conduct Risk", "Customer Engagement Risk", "Data and Records Management Risk", "Fraud Risk", "Information Security and Cyber Risk", "Insurance Exposure Risk"])
+                        entity_dropdown = st.selectbox("Entity", ["FAK", "ALAK", "LIFE SA", "ALB", "ALZ", "NBFS: SPM", "NBFS: WILLS TRUST AND ESTATES", "NBFS: AIFA", "AIC", "GAM"])
+                        causal_category = st.text_input("Causal Category")
+                        bu_rating = st.selectbox("BU Rating", ["Limited", "Major", "Moderate", "Critical"])
+                        agl_rating = st.selectbox("AGL Rating", ["Limited", "Major", "Moderate", "Critical"])
+                        rating = st.text_input("Rating")
+                        assurance_provider_dropdown = st.selectbox("Assurance Provider", ["2LOD Risk", "External Audit", "Internal Audit", "GSA"])
+                        due_date = st.date_input("Due Date")
+                        financially_implicated = st.radio("Does the issue have a financial implication?", ["Yes", "No"])
+                        issue_owner_name = st.text_input("Issue Owner Name")
+                        issue_owner_email = st.text_input("Issue Owner Email Address")
 
                         # Convert the input due_date to datetime object
                         due_date = datetime.combine(due_date, datetime.min.time())
